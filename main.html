@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Shooter - Главное Меню</title>
+    <link rel="stylesheet" href="css/styl4565.css">
+    <style>
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .volume-control {
+            margin: 10px 0;
+        }
+        .toggle-button {
+            cursor: pointer;
+            padding: 10px 15px;
+            border: none;
+            background-color: #e63946;
+            color: #fff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .toggle-button:hover {
+            background-color: #d62839;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Zombie CumShoter</h1>
+        <ul class="menu">
+            <li><a href="index (1).html">Начать Игру</a></li>
+            <li><a href="settings.html">Настройки</a></li>
+            <li><a href="exit.html">Выход</a></li>
+        </ul>
+    </div>
+
+    <!-- Добавление аудио плеера -->
+    <audio id="background-music" loop>
+        <source src="C:/Users/BAGDAULET PC/Desktop/100-Зомби/themes/Alex-Besss-Alien.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+    <div class="controls">
+        <button id="toggle-music" class="toggle-button">Включить Музыку</button>
+        <div class="volume-control">
+            <label for="volume">Громкость:</label>
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+        </div>
+    </div>
+
+    <script>
+        var music = document.getElementById('background-music');
+        var toggleButton = document.getElementById('toggle-music');
+        var volumeControl = document.getElementById('volume');
+
+        // Обработчик для кнопки включения/выключения музыки
+        toggleButton.onclick = function() {
+            if (music.paused) {
+                music.play();
+                toggleButton.textContent = 'Выключить Музыку';
+            } else {
+                music.pause();
+                toggleButton.textContent = 'Включить Музыку';
+            }
+        };
+
+        // Обработчик для изменения громкости
+        volumeControl.oninput = function() {
+            music.volume = volumeControl.value;
+        };
+    </script>
+</body>
+</html>
+
+
